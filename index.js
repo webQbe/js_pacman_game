@@ -3,6 +3,7 @@ import { LEVEL, OBJECT_TYPE } from './setup';
 
 // Import JS Classes
 import GameBoard from './GameBoard';
+import Pacman from './Pacman';
 
 // Define DOM Elements
 const gameGrid = document.querySelector('#game');
@@ -46,8 +47,11 @@ function gameLoop(pacman, ghosts){
 
 function startGame(){
 
+    console.log("Start");
 
 }
 
+// Initialize Game
+startButton.addEventListener('click', startGame);
 
 
