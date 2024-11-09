@@ -32,4 +32,48 @@ class GameBoard {
     /* showGameStatus() appends this new div to this.DOMGrid, 
        so it displays on the webpage within the DOMGrid container. */
 
+
+    // Method for Creating Grid
+    // Pass LEVEL array from setup.js
+    createGrid(level){
+
+        this.dotCount = 0; // Clear dotCount when starting a new game
+        this.grid = []; // Clear Array with All Positions
+        this.DOMGrid.innerHTML = ''; // Clear DOMGrid divs
+
+        // Set DOMGrid Style
+        this.DOMGrid.style.cssText = `
+            grid-template-columns: repeat(${GRID_SIZE}, ${CELL_SIZE}px)`;
+            // Set Value in Pixels 
+            // (GRID_SIZE = Number of Cells / CELL_SIZE = in Pixels )
+
+        // Loop through LEVEL array which represents each cell
+        level.forEach(square => {
+
+            // Create div for Current Element
+            const div = document.createElement('div');
+
+            // Set class as square &
+            // Take current element's value to
+            // Assign another class based on CLASS_LIST Index (0-9)
+            div.classList.add('square', CLASS_LIST[square]);
+
+            // Set div Size
+            div.style.cssText = `width: ${CELL_SIZE}px; 
+                                 height: ${CELL_SIZE}px;`;
+
+            // Append Created div to DOMGrid
+            this.DOMGrid.appendChild(div);
+
+            // Insert this div to grid array
+            this.grid.push(div);
+
+            // If Selected Class is DOT, Add to dotCount
+            if(CLASS_LIST[square] === OBJECT_TYPE.DOT) this.dotCount++;
+
+        })
+
+    }
+
+
 }

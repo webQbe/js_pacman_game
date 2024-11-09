@@ -1,6 +1,9 @@
 // Import Arrays from setup.js
 import { LEVEL, OBJECT_TYPE } from './setup';
 
+// Import JS Classes
+import GameBoard from '/GameBoard';
+
 // Define DOM Elements
 const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
