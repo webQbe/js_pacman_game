@@ -76,4 +76,32 @@ class GameBoard {
     }
 
 
+    // Define Object Methods
+
+    addObject(pos, classes){
+        // Select Element with pos &
+        // Add class
+        this.grid[pos].classList.add(...classes);
+    }
+
+    removeObject(pos, classes){
+        // Select Element with pos &
+        // Remove class
+        this.grid[pos].classList.remove(...classes);
+    }
+
+    objectExist(pos, object){
+        // Returns True or False
+        return this.grid[pos].classList.contains(object);
+    }
+    
+    // Rotating Pacman
+    // Pass degrees
+    rotateDiv(pos, deg){
+
+        // Rotate Selected Element with CSS Transform
+        this.grid[pos].style.transform = `rotate(${deg}deg)`;
+
+    }
+
 }
