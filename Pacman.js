@@ -14,5 +14,25 @@ class Pacman {
         this.rotation = true;
     }
 
+    shouldMove(){
+
+        // Do not move Packman until player presses a key
+        if(!this.dir) return false;
+
+        // Check timer & speed values
+        if(this.timer === this.speed){
+
+            // Move Pacman If 
+            // timer & speed values are equal
+            this.timer = 0; // Reset timer to 0
+            return true;
+            
+        }
+
+        // Increase timer value by 1
+        this.timer++
+
+    }
+
 
 }
