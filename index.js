@@ -18,5 +18,31 @@ let powerPillActive = false; // Important when Pacman eats a PowerPill
 let powerPillTimer = null; // Timer for PowerPill
 
 
+function gameOver(pacman, grid){
+
+
+
+}
+
+
+function checkCollision(pacman, ghosts){
+
+
+
+}
+
+
+function gameLoop(pacman, ghosts){
+
+
+
+}
+
+
+function startGame(){
+
+
+}
+
 
 
