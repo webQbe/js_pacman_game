@@ -120,3 +120,6 @@ class GameBoard {
     }
 
 }
+
+// Export Class
+export default GameBoard;
