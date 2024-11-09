@@ -104,4 +104,19 @@ class GameBoard {
 
     }
 
+    // Create static method
+    // This can be called without instantiating the class
+    static createGameBoard(DOMGrid, level){
+
+        // Instantiate GameBoard Class
+        const board = new this(DOMGrid);
+
+        // Call createGrid() with Level Array
+        board.createGrid(level);
+
+        // Return Class
+        return board;
+
+    }
+
 }
