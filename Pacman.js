@@ -14,6 +14,7 @@ class Pacman {
         this.rotation = true;
     }
 
+    // Decide whether Pacman should Move or Not
     shouldMove(){
 
         // Do not move Packman until player presses a key
@@ -34,5 +35,26 @@ class Pacman {
 
     }
 
+    // Calculate Pacman's Next Movement
+    getNextMove(objectExist){
+
+        // Get nextMovePos by 
+        // Adding Direction & Movement to Current Position
+        let nextMovePos = this.pos + this.dir.movement;
+
+        // Check if Pacman hits on A WALL or GHOSTLAIR with nextMovePos
+        if(
+            objectExist(nextMovePos, OBJECT_TYPE.WALL) ||
+            objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)
+        ){  
+            // If True Keep Pacman in Current Position
+            nextMovePos = this.pos;
+
+        }
+
+        // Return Object with nextMovePos & direction
+        return { nextMovePos, direction: this.dir };
+
+    }
 
 }
