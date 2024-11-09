@@ -71,4 +71,12 @@ class Pacman {
 
     }
 
+
+    // Set Pacman's New Position
+    setNewPos(nextMovePos){
+
+        this.pos = nextMovePos;
+        
+    }
+
 }
