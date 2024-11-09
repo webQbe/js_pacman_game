@@ -2,7 +2,7 @@
 import { LEVEL, OBJECT_TYPE } from './setup';
 
 // Import JS Classes
-import GameBoard from '/GameBoard';
+import GameBoard from './GameBoard';
 
 // Define DOM Elements
 const gameGrid = document.querySelector('#game');
@@ -18,7 +18,7 @@ const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL); // Call GameBoard
 // Initial Setup
 let score = 0;
 let timer = null;
-let gameWin = flase;
+let gameWin = false;
 let powerPillActive = false; // Important when Pacman eats a PowerPill
 let powerPillTimer = null; // Timer for PowerPill
 
