@@ -76,7 +76,38 @@ class Pacman {
     setNewPos(nextMovePos){
 
         this.pos = nextMovePos;
-        
+
+    }
+
+    // Handle Player Inputs
+    // Pass KeyCode & objectExist()
+    handleKeyInput(e, objectExist){
+
+        let dir; // Initialize dir
+
+        // Check if Pressed Keys are Arrow Keys
+        if(e.keyCode >= 37 && e.keyCode <= 40){
+
+            // Set Pacman's Direction
+            dir = DIRECTIONS[e.key];
+
+        } else {
+
+            // Ignore Input
+            return;
+
+        }
+
+
+        const nextMovePos = this.pos + dir.movement;
+        if(objectExist(nextMovePos, OBJECT_TYPE.WALL)) return;
+
+        // Assign dir to Pacman.dir
+        this.dir = dir;
+
     }
 
 }
+
+// Export Class
+export default Pacman;
