@@ -42,6 +42,12 @@ class Pacman {
         // Adding Direction & Movement to Current Position
         let nextMovePos = this.pos + this.dir.movement;
 
+        /* In the handleKeyInput(), 
+           when an arrow key is pressed (key code 37–40), 
+           the code assigns this.dir to an object from DIRECTIONS, 
+           using DIRECTIONS[e.key]. */
+           
+
         // Check if Pacman hits on A WALL or GHOSTLAIR with nextMovePos
         if(
             objectExist(nextMovePos, OBJECT_TYPE.WALL) ||
@@ -90,6 +96,17 @@ class Pacman {
 
             // Set Pacman's Direction
             dir = DIRECTIONS[e.key];
+
+            /* e.key retrieves the name of the key that was pressed, 
+              which is mapped in the DIRECTIONS array. 
+              
+              Since e.key holds the string values like "ArrowLeft", 
+              "ArrowRight", "ArrowUp", and "ArrowDown", it can match 
+              those exact string names in the DIRECTIONS array, 
+              where each string key (e.g., DIRECTIONS["ArrowUp"]) 
+              points to an object specifying direction details like movement. 
+
+            */
 
         } else {
 
