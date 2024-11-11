@@ -47,7 +47,24 @@ function gameLoop(pacman, ghosts){
 
 function startGame(){
 
-    console.log("Start");
+    // Starting A New Game
+    gameWin = false;
+    powerPillActive = false;
+    score = 0;
+
+    // Set Class to startButton
+    startButton.classList.add('hide');
+
+    // Create A New gameGrid
+    gameBoard.createGrid(LEVEL); 
+
+    // Create Pacman
+    // Set Speed to 2 & Position 287
+    const pacman = new Pacman(2, 287);
+
+    // Put PACMAN Object At Position 287
+    gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
+
 
 }
 
