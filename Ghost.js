@@ -73,3 +73,6 @@ class Ghost{
     }
 
 }
+
+// Export Class
+export default Ghost;

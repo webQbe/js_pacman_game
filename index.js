@@ -1,9 +1,13 @@
 // Import Arrays from setup.js
 import { LEVEL, OBJECT_TYPE } from './setup';
 
+// Import randomMovement() from ghostMoves.js
+import { randomMovement } from './ghostMoves';
+
 // Import JS Classes
 import GameBoard from './GameBoard';
 import Pacman from './Pacman';
+import Ghost from './Ghost';
 
 // Define DOM Elements
 const gameGrid = document.querySelector('#game');
@@ -76,7 +80,17 @@ function startGame(){
         pacman.handleKeyInput(e, gameBoard.objectExist)
     );
 
-    // Set Interval to call gameLoop()
+    // Create Ghosts
+    const ghosts = [
+        // Placing ghosts diagonally
+        // Pass speed, startPos, movement, ghostName
+        new Ghost(5, 188, randomMovement, OBJECT_TYPE.BLINKY),
+        new Ghost(4, 209, randomMovement, OBJECT_TYPE.PINKY),
+        new Ghost(3, 230, randomMovement, OBJECT_TYPE.INKY),
+        new Ghost(2, 251, randomMovement, OBJECT_TYPE.CLYDE)
+    ]
+
+    // Set Interval to call gameLoop() 
     // Call gameLoop() every 80 ms
     timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
 
