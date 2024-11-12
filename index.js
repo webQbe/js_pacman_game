@@ -104,6 +104,20 @@ function gameLoop(pacman, ghosts){
     // Collision Check 2
     checkCollision(pacman, ghosts);
 
+    // Check if Pacman Eats A Dot
+    if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)){
+
+        // Remove the Dot
+        gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
+
+        // Decrease Dot Count by -1
+        gameBoard.dotCount--;
+
+        // Add +10 to Score
+        score += 10;
+
+    }
+
 }
 
 
