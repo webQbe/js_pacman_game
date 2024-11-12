@@ -30,7 +30,18 @@ let powerPillTimer = null; // Timer for PowerPill
 
 function gameOver(pacman, grid){
 
+    // Remove Keydown Event Listener
+    document.removeEventListener('keydown', e => 
+        pacman.handleKeyInput(e, gameBoard.objectExist));
 
+    // Display Game Status
+    gameBoard.showGameStatus(gameWin);
+
+    // Stop Calling gameLoop()
+    clearInterval(timer);
+
+    // Show Start Button
+    startButton.classList.remove('hide');
 
 }
 
