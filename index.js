@@ -42,6 +42,9 @@ function gameLoop(pacman, ghosts){
 
     console.log(" Calling gameLoop()...");
 
+    // Call moveCharacter() with pacman
+    gameBoard.moveCharacter(pacman);
+
 }
 
 
