@@ -30,5 +30,10 @@ class Ghost{
         return false;
     }
 
+    getNextMove(objectExist){
+
+        
+
+    }
 
 }
