@@ -120,7 +120,10 @@ class Pacman {
 
 
         const nextMovePos = this.pos + dir.movement;
-        if(objectExist(nextMovePos, OBJECT_TYPE.WALL)) return;
+
+        // Stop Moving Pacman Across Walls & Ghostlair
+        if(objectExist(nextMovePos, OBJECT_TYPE.WALL) || 
+           objectExist(nextMovePos, OBJECT_TYPE.GHOSTLAIR)) return;
 
         // Assign dir to Pacman.dir
         this.dir = dir;
