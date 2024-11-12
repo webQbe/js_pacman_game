@@ -65,6 +65,14 @@ function startGame(){
     // Put PACMAN Object At Position 287
     gameBoard.addObject(287, [OBJECT_TYPE.PACMAN]);
 
+    // Add Event Listener To Control Pacman
+    document.addEventListener('keydown', (e) => 
+        // Call Function from pacman{}
+            // Using => function in gameBoard.objectExist
+            // Instead of .bind(gameBoard)
+        pacman.handleKeyInput(e, gameBoard.objectExist)
+    );
+
 
 }
 

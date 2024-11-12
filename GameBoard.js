@@ -90,7 +90,8 @@ class GameBoard {
         this.grid[pos].classList.remove(...classes);
     }
 
-    objectExist(pos, object){
+    // Used in Keydown EL To Control Pacman 
+    objectExist = (pos, object) => {
         // Returns True or False
         return this.grid[pos].classList.contains(object);
     }
