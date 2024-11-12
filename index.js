@@ -49,6 +49,9 @@ function gameLoop(pacman, ghosts){
     // Call moveCharacter() with pacman
     gameBoard.moveCharacter(pacman);
 
+    // Call moveCharacter() with Each Ghost
+    ghosts.forEach(ghost => gameBoard.moveCharacter(ghost));
+
 }
 
 
@@ -91,8 +94,8 @@ function startGame(){
     ]
 
     // Set Interval to call gameLoop() 
-    // Call gameLoop() every 80 ms
-    timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
+    // Call gameLoop() with pacman & ghosts, every 80 ms
+    timer = setInterval(() => gameLoop(pacman, ghosts), GLOBAL_SPEED);
 
 }
 
