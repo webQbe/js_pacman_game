@@ -40,7 +40,7 @@ function checkCollision(pacman, ghosts){
 
 function gameLoop(pacman, ghosts){
 
-
+    console.log(" Calling gameLoop()...");
 
 }
 
@@ -73,6 +73,9 @@ function startGame(){
         pacman.handleKeyInput(e, gameBoard.objectExist)
     );
 
+    // Set Interval to call gameLoop()
+    // Call gameLoop() every 80 ms
+    timer = setInterval(() => gameLoop(pacman), GLOBAL_SPEED);
 
 }
 
