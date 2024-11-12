@@ -64,6 +64,12 @@ class Ghost{
 
     }
 
-    
+    setNewPos(nextMovePos, direction){
+
+        // Set Ghosts New Position & Direction
+        this.pos = nextMovePos;
+        this.dir = direction;
+
+    }
 
 }
