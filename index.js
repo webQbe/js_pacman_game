@@ -37,7 +37,42 @@ function gameOver(pacman, grid){
 
 function checkCollision(pacman, ghosts){
 
+    // Get Collided Ghost
+    const collidedGhost = ghosts.find(ghost => pacman.pos === ghost.pos);
 
+    if(collidedGhost){
+        // If collided 
+        if(pacman.powerPill){
+
+            // If pacman got PowerPill
+            gameBoard.removeObject(
+                 // Pass Collided Ghost's position
+                collidedGhost.pos,
+                [
+                    // Pass Classes To Be Removed
+                    OBJECT_TYPE.GHOST,
+                    OBJECT_TYPE.SCARED,
+                    collidedGhost.name
+                ]);
+                // Move Ghost To Start Position W hen It Dies
+                collidedGhost.pos = collidedGhost.startPos;
+
+                // Add 100 Points
+                score += 100;
+        } else {
+            // If Pacman Got No PowerPill, He Dies
+
+            // Remove Pacman 
+            gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PACMAN]);
+
+            // Reset Rotated Div in Pacman's Position
+            gameBoard.rotateDiv(pacman.pos, 0);
+
+            // Call gameOver()
+            gameOver(pacman, gameGrid);
+
+        }
+    }
 
 }
 
