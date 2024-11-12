@@ -32,7 +32,18 @@ class Ghost{
 
     getNextMove(objectExist){
 
-        
+        // Calling randomMovement() in ghostMoves.js
+        // To Get nextMovePos & direction
+        const { nextMovePos, direction } = this.movement(
+
+            this.pos,
+            this.dir,
+            objectExist
+
+        );
+
+        // Return Objects
+        return { nextMovePos, direction };
 
     }
 
