@@ -15,7 +15,7 @@ const scoreTable = document.querySelector('#score');
 const startButton =  document.querySelector('#start-button');
 
 // Define Constants
-const POWER_PILL_TIME = 10000; // 10 milli-seconds
+const POWER_PILL_TIME = 10000; // 10 seconds
 const GLOBAL_SPEED = 80; // milli-seconds
 const gameBoard = GameBoard.createGameBoard(gameGrid, LEVEL); // Call GameBoard
 
@@ -117,6 +117,56 @@ function gameLoop(pacman, ghosts){
         score += 10;
 
     }
+
+    // Check if Pacman Eats A Powerpill
+    if(gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)){
+
+        // Remove Eaten Pill
+        gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
+
+        // Set powerPill To True
+        pacman.powerPill = true;
+        score += 50; // Add 50 Points
+
+        clearTimeout(powerPillTimer); // Clear if A Powerpill stll Exists
+
+        powerPillTimer = setTimeout(() => 
+            pacman.powerPill = false, // Set powerPill To False
+            POWER_PILL_TIME // In 10 seconds
+        ); 
+
+        /* After POWER_PILL_TIME, powerPillActive and pacman.powerPill 
+          will no longer be in sync. */
+    }
+
+
+    // Change Ghost's Scare Mode According To Powerpill Status 
+
+    // Check if pacman.powerPill & powerPillActive are out of sync.
+    if(pacman.powerPill !== powerPillActive){
+
+        // If out of sync, 
+
+        // Sync global powerPillActive with pacman.powerPill
+        powerPillActive = pacman.powerPill; 
+
+        // Set each ghost’s isScared to match pacman.powerPill
+        ghosts.forEach(ghost => ghost.isScared = pacman.powerPill);
+
+        /* If powerPillActive is true, all ghosts become "scared".
+
+           If powerPillActive is false (after the power pill's effect wears 
+           off), ghosts return to their normal behavior.
+           
+           A timer is set with setTimeout() to reset pacman.powerPill back to
+           false after POWER_PILL_TIME, after which powerPillActive and pacman.powerPill 
+           will no longer be in sync, allowing this conditional block to re-run and
+           disable "scare mode" for the ghosts.
+           
+           */
+
+    } 
+
 
 }
 
