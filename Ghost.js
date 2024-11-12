@@ -47,4 +47,23 @@ class Ghost{
 
     }
 
+    // Moving the Ghost
+    makeMove(){
+
+        // Remove these classes from div
+        const classesToRemove = [OBJECT_TYPE.GHOST, OBJECT_TYPE.SCARED, this.name];
+
+        // Add these classes to div
+        let classesToAdd = [OBJECT_TYPE.GHOST, this.name]
+
+        // Check if Ghost is Scared
+        if(this.isScared) classesToAdd = [...classesToAdd, OBJECT_TYPE.SCARED]; 
+
+        // Return Objects
+        return { classesToRemove, classesToAdd };
+
+    }
+
+    
+
 }
