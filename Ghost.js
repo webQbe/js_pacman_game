@@ -14,4 +14,21 @@ class Ghost{
         this.rotation = false; // Do not rotate Ghost when it moves
     }
 
+    shouldMove(){
+        // speed = 5
+        if(this.timer === this.speed){
+
+            // Reset timer
+            this.timer = 0;
+            return true; 
+
+        }
+
+        // Add +1 to timer
+        this.timer++
+
+        return false;
+    }
+
+
 }
