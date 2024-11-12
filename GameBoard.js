@@ -105,6 +105,45 @@ class GameBoard {
 
     }
 
+    // Move both Pacman & Ghosts
+    moveCharacter(character){
+
+        if(character.shouldMove()){
+            // If True
+
+            // Call getNextMove() To Get nextMovePos & direction
+            const { nextMovePos, direction } = character.getNextMove(this.objectExist);
+
+            // Call makeMove() To Get classesToRemove & classesToAdd
+            const { classesToRemove, classesToAdd } =  character.makeMove();
+
+            // Stop Rotating Pacman when player tries to move it
+            if(character.rotation && nextMovePos !== character.pos){
+
+                // Ghosts are Skipped
+                // Rotation is True Only for Pacman
+
+                // Call rotateDiv()
+                this.rotateDiv(nextMovePos, character.dir.rotation);
+
+                // Rotate back previous div
+                // To Avoid Ghost being rotated when they move into it
+                this.rotateDiv(character.pos, 0); 
+            }
+
+            // Moving Character
+            this.removeObject(character.pos, classesToRemove);
+            this.addObject(nextMovePos, classesToAdd);
+
+            // Set New Position
+            character.setNewPos(nextMovePos, direction);
+
+        }
+
+    }
+
+
+
     // Create static method
     // This can be called without instantiating the class
     static createGameBoard(DOMGrid, level){
