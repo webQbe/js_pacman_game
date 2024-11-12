@@ -94,6 +94,9 @@ class Pacman {
         // Check if Pressed Keys are Arrow Keys
         if(e.keyCode >= 37 && e.keyCode <= 40){
 
+            // Log Event
+            console.log(e);
+
             // Set Pacman's Direction
             dir = DIRECTIONS[e.key];
 
