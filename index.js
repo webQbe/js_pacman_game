@@ -84,8 +84,14 @@ function gameLoop(pacman, ghosts){
     // Call moveCharacter() with pacman
     gameBoard.moveCharacter(pacman);
 
+    // Collision Check 1
+    checkCollision(pacman, ghosts);
+
     // Call moveCharacter() with Each Ghost
     ghosts.forEach(ghost => gameBoard.moveCharacter(ghost));
+
+    // Collision Check 2
+    checkCollision(pacman, ghosts);
 
 }
 
