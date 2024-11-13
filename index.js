@@ -176,6 +176,9 @@ function gameLoop(pacman, ghosts){
 
     }
 
+    // Display Score
+    scoreTable.innerHTML = score;
+
 
 }
 
