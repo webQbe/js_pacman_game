@@ -50,6 +50,9 @@ function playAudio(audio){
 
 function gameOver(pacman, grid){
 
+    // Play Sound
+    playAudio(soundGameOver)
+
     // Remove Keydown Event Listener
     document.removeEventListener('keydown', e => 
         pacman.handleKeyInput(e, gameBoard.objectExist));
@@ -74,6 +77,9 @@ function checkCollision(pacman, ghosts){
     if(collidedGhost){
         // If collided 
         if(pacman.powerPill){
+
+            // Play Audio
+            playAudio(soundGhost);
 
             // If pacman got PowerPill
             gameBoard.removeObject(
@@ -127,6 +133,9 @@ function gameLoop(pacman, ghosts){
     // Check if Pacman Eats A Dot
     if (gameBoard.objectExist(pacman.pos, OBJECT_TYPE.DOT)){
 
+        // Play Sound
+        playAudio(soundDot);
+
         // Remove the Dot
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.DOT]);
 
@@ -140,6 +149,9 @@ function gameLoop(pacman, ghosts){
 
     // Check if Pacman Eats A Powerpill
     if(gameBoard.objectExist(pacman.pos, OBJECT_TYPE.PILL)){
+
+        // Play Sound
+        playAudio(soundPill);
 
         // Remove Eaten Pill
         gameBoard.removeObject(pacman.pos, [OBJECT_TYPE.PILL]);
@@ -204,6 +216,9 @@ function gameLoop(pacman, ghosts){
 
 
 function startGame(){
+
+    // Play Sound
+    playAudio(soundGameStart);
 
     // Starting A New Game
     gameWin = false;
