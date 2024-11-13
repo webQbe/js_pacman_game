@@ -167,6 +167,15 @@ function gameLoop(pacman, ghosts){
 
     } 
 
+    // Check if All Dots have been Eaten
+    if(gameBoard.dotCount === 0){
+
+        // If Dot Count is 0
+        gameWin = true;
+        gameOver(pacman, ghosts);
+
+    }
+
 
 }
 
